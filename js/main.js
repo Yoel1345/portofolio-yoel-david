@@ -3,13 +3,13 @@ const CONFIG = {
   githubUser: "Yoel1345",              // username GitHub kamu, mis. "yoeldavid"
   email: "yoelofficial123@gmail.com",
   phone: "0896-9481-6524",      // nomor WhatsApp (format 08xx atau 62xx, tautan wa.me dibuat otomatis)
-  location: "Kota Makassar, Sulawesi Selatan",
+  location: "Kota kamu, Indonesia",
 
   /* Ikon kartu kontak. Kosong = pakai ikon bawaan.
      Isi dengan path file logo resmi yang kamu unduh sendiri (SVG atau PNG persegi), contoh:
        github: "img/icons/github.svg"
      Jika file tidak ditemukan, ikon bawaan tetap dipakai. */
-  contactIcons: { email: "img/icons/email.png", phone: "img/icons/whatsapp.png", location: "img/icons/location.png", github: "img/icons/github.png" },
+  contactIcons: { email: "", phone: "", location: "", github: "" },
   defaultLang: "id",           // "id" atau "en"
 
   /* Pengiriman form kontak:
@@ -102,7 +102,7 @@ const CONFIG = {
 
 const I18N = {
   id: {
-    "nav.label": "Navigasi utama", "nav.job": "Job desk", "nav.skills": "Skills", "nav.projects": "Proyek", "nav.contact": "Kontak",
+    "nav.label": "Navigasi utama", "nav.menu": "Buka menu", "nav.job": "Job desk", "nav.skills": "Skills", "nav.projects": "Proyek", "nav.contact": "Kontak",
     "hero.eyebrow": "Software Developer · Teknik Informatika",
     "hero.h1a": "Satu developer untuk layar HP, ", "hero.h1em": "server", "hero.h1b": ", dan agen AI.",
     "hero.lead": "Halo, saya <strong>Yoel David</strong>. Saya merancang aplikasi mobile lintas platform dengan <strong>Flutter</strong>, sistem web dan API dengan <strong>Laravel</strong>, <strong>NestJS</strong>, dan <strong>Next.js</strong>, serta asisten AI berbasis <strong>LangGraph</strong>.",
@@ -129,7 +129,7 @@ const I18N = {
     "t3.c": "Menyiapkan deployment dengan Docker dan Caddy",
     "t3.d": "Mengelola versi dan kolaborasi lewat Git dan GitHub",
     "sk.h2": "Skill yang saya kuasai",
-    "sk.p": "Teknologi yang saya pakai sehari-hari, dikelompokkan menurut perannya. Warna hijau menandai tumpuan utama saya.",
+    "sk.p": "Teknologi yang saya pakai sehari-hari, dikelompokkan menurut perannya.",
     "sk.r1": "Bahasa & framework", "sk.r1s": "MOBILE · SCRIPTING",
     "sk.r2": "Web, backend & database",
     "sk.r3": "AI, motion & infrastruktur", "sk.r3s": "OTOMASI · DEPLOY",
@@ -159,7 +159,7 @@ const I18N = {
     "locale": "id-ID"
   },
   en: {
-    "nav.label": "Main navigation", "nav.job": "Job scope", "nav.skills": "Skills", "nav.projects": "Projects", "nav.contact": "Contact",
+    "nav.label": "Main navigation", "nav.menu": "Open menu", "nav.job": "Job scope", "nav.skills": "Skills", "nav.projects": "Projects", "nav.contact": "Contact",
     "hero.eyebrow": "Software Developer · Informatics Engineering",
     "hero.h1a": "One developer for the phone screen, ", "hero.h1em": "the server", "hero.h1b": ", and AI agents.",
     "hero.lead": "Hi, I'm <strong>Yoel David</strong>. I design cross-platform mobile apps with <strong>Flutter</strong>, web systems and APIs with <strong>Laravel</strong>, <strong>NestJS</strong>, and <strong>Next.js</strong>, and AI assistants with <strong>LangGraph</strong>.",
@@ -186,7 +186,7 @@ const I18N = {
     "t3.c": "Set up deployment with Docker and Caddy",
     "t3.d": "Manage versions and collaboration with Git and GitHub",
     "sk.h2": "Skills I work with",
-    "sk.p": "The technologies I use day to day, grouped by role. Green marks my main tools.",
+    "sk.p": "The technologies I use day to day, grouped by role.",
     "sk.r1": "Languages & frameworks", "sk.r1s": "MOBILE · SCRIPTING",
     "sk.r2": "Web, backend & databases",
     "sk.r3": "AI, motion & infrastructure", "sk.r3s": "AUTOMATION · DEPLOY",
@@ -337,9 +337,6 @@ function renderProjects() {
   const list = state.items.map((p, i) => ({ p, i })).filter(x => filter === "all" || x.p.category === filter);
   box.innerHTML = list.length ? list.map(x => card(x.p, x.i)).join("") : '<div class="empty">' + esc(t("pr.empty")) + '</div>';
   wireFallback(box);
-  const n = document.getElementById("repo-note");
-  if (state.mode === "ok") { n.textContent = t("pr.noteOk") + CONFIG.githubUser + "."; n.className = "src-note"; }
-  else { n.textContent = t(state.mode === "fail" ? "pr.noteFail" : "pr.noteDemo"); n.className = "src-note demo"; }
 }
 
 /* ---------- Case study dialog ---------- */
@@ -488,6 +485,23 @@ form.addEventListener("submit", async e => {
   setStatus(t("ct.okMail") + CONFIG.email + ".", "ok");
   try { window.location.href = href; } catch (err) {}
 });
+
+/* ---------- Menu mobile ---------- */
+(function () {
+  const btn = document.getElementById("menu-btn");
+  const box = document.getElementById("hdr-menu");
+  if (!btn || !box) return;
+  function setOpen(open) {
+    box.classList.toggle("is-open", open);
+    btn.classList.toggle("is-open", open);
+    btn.setAttribute("aria-expanded", String(open));
+  }
+  btn.addEventListener("click", () => setOpen(!box.classList.contains("is-open")));
+  box.addEventListener("click", e => { if (e.target.closest("nav a")) setOpen(false); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") setOpen(false); });
+  document.addEventListener("click", e => { if (!e.target.closest("header.top")) setOpen(false); });
+  window.matchMedia("(min-width: 861px)").addEventListener("change", () => setOpen(false));
+})();
 
 /* ---------- Bahasa ---------- */
 function applyLang() {
