@@ -3,13 +3,13 @@ const CONFIG = {
   githubUser: "Yoel1345",              // username GitHub kamu, mis. "yoeldavid"
   email: "yoelofficial123@gmail.com",
   phone: "0896-9481-6524",      // nomor WhatsApp (format 08xx atau 62xx, tautan wa.me dibuat otomatis)
-  location: "Kota kamu, Indonesia",
+  location: "Makassar, Indonesia",
 
   /* Ikon kartu kontak. Kosong = pakai ikon bawaan.
      Isi dengan path file logo resmi yang kamu unduh sendiri (SVG atau PNG persegi), contoh:
        github: "img/icons/github.svg"
      Jika file tidak ditemukan, ikon bawaan tetap dipakai. */
-  contactIcons: { email: "", phone: "", location: "", github: "" },
+  contactIcons: { email: "img/icons/email.png", phone: "img/icons/whatsapp.png", location: "img/icons/location.png", github: "img/icons/github.png" },
   defaultLang: "id",           // "id" atau "en"
 
   /* Pengiriman form kontak:
