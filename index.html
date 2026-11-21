@@ -15,7 +15,8 @@
 <div class="wrap">
   <header class="top">
     <a class="brand" href="#atas" aria-label="Yoel David"><img class="brand-av" src="img/avatar.jpg" alt="" width="40" height="40"><span>yoel<i>.</i>dev</span></a>
-    <div class="hdr-right">
+    <button class="menu-btn" type="button" id="menu-btn" aria-controls="hdr-menu" aria-expanded="false" data-i18n-attr="aria-label:nav.menu"><span></span><span></span><span></span></button>
+    <div class="hdr-right" id="hdr-menu">
       <nav data-i18n-attr="aria-label:nav.label">
         <a href="#job-desk" data-i18n="nav.job"></a>
         <a href="#skills" data-i18n="nav.skills"></a>
@@ -149,19 +150,19 @@ app = graph.<span class="f">compile</span>()</code></pre>
         <div class="stack-row">
           <h3><span data-i18n="sk.r1"></span><small data-i18n="sk.r1s"></small></h3>
           <ul class="items">
-            <li class="core">Flutter</li><li class="core">Dart</li><li>PHP</li><li>Laravel</li><li>Python</li><li>JavaScript</li><li>TypeScript</li>
+            <li>Flutter</li><li>Dart</li><li>PHP</li><li>Laravel</li><li>Python</li><li>JavaScript</li><li>TypeScript</li>
           </ul>
         </div>
         <div class="stack-row">
           <h3><span data-i18n="sk.r2"></span><small>FULL STACK</small></h3>
           <ul class="items">
-            <li class="core">NestJS</li><li class="core">Next.js</li><li>React</li><li>Node.js &amp; Express</li><li>Tailwind CSS</li><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Prisma ORM</li>
+            <li>NestJS</li><li>Next.js</li><li>React</li><li>Node.js &amp; Express</li><li>Tailwind CSS</li><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Prisma ORM</li>
           </ul>
         </div>
         <div class="stack-row">
           <h3><span data-i18n="sk.r3"></span><small data-i18n="sk.r3s"></small></h3>
           <ul class="items">
-            <li class="core">LangGraph AI Agents</li><li>GSAP &amp; ScrollTrigger</li><li>Docker &amp; Caddy</li><li>Git &amp; GitHub</li><li>Figma UI/UX</li><li>VS Code</li>
+            <li>LangGraph AI Agents</li><li>GSAP &amp; ScrollTrigger</li><li>Docker &amp; Caddy</li><li>Git &amp; GitHub</li><li>Figma UI/UX</li><li>VS Code</li>
           </ul>
         </div>
       </div>
@@ -174,7 +175,6 @@ app = graph.<span class="f">compile</span>()</code></pre>
       </div>
       <p class="proj-lead" data-i18n="pr.p"></p>
       <div class="proj-grid" id="repos" aria-live="polite"></div>
-      <p class="src-note" id="repo-note"></p>
     </section>
 
     <section id="pendidikan">
