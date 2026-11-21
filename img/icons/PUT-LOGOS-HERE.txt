@@ -1,0 +1,4 @@
+Taruh logo resmi di folder ini, lalu isi path-nya di js/main.js pada CONFIG.contactIcons.
+Nama yang disarankan: email.svg, whatsapp.svg, location.svg, github.svg
+Unduh dari halaman resmi merek masing-masing (cari: 'GitHub logos and usage', 'WhatsApp brand resources',
+'Gmail brand', 'Google Maps brand guidelines') dan ikuti ketentuan penggunaannya. Jangan ubah warna atau bentuk logo.

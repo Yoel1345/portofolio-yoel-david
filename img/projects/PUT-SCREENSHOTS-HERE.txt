@@ -1,0 +1,2 @@
+Taruh screenshot proyek di folder ini (rasio 16:10, mis. 1280x800, format .webp atau .png).
+Lalu isi path-nya di js/main.js pada CONFIG.projects, contoh: image: "img/projects/kasir.webp"

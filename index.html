@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yoel David Portfolio</title>
+<meta name="description" content="Portofolio Yoel David: mobile app development, full stack web &amp; API, dan AI automation.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#atas" aria-label="Yoel David"><img class="brand-av" src="img/avatar.jpg" alt="" width="40" height="40"><span>yoel<i>.</i>dev</span></a>
+    <div class="hdr-right">
+      <nav data-i18n-attr="aria-label:nav.label">
+        <a href="#job-desk" data-i18n="nav.job"></a>
+        <a href="#skills" data-i18n="nav.skills"></a>
+        <a href="#proyek" data-i18n="nav.projects"></a>
+        <a href="#kontak" data-i18n="nav.contact"></a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language / Bahasa">
+        <button type="button" data-lang="id" aria-pressed="true">ID</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn line sm" id="hdr-gh" href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </header>
+
+  <main id="atas">
+    <div class="hero">
+      <div class="hero-main">
+        <span class="status"><i></i><span data-i18n="card.status"></span></span>
+        <span class="eyebrow" data-i18n="hero.eyebrow"></span>
+        <h1><span data-i18n="hero.h1a"></span><em data-i18n="hero.h1em"></em><span data-i18n="hero.h1b"></span></h1>
+        <p class="lead" data-i18n-html="hero.lead"></p>
+        <div class="cta">
+          <a class="btn solid" href="#proyek" data-i18n="hero.cta1"></a>
+          <a class="btn line" href="#kontak" data-i18n="hero.cta2"></a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>22</b><span data-i18n="st.1"></span></div>
+          <div class="stat"><b>3</b><span data-i18n="st.2"></span></div>
+          <div class="stat"><b>S1</b><span data-i18n="st.3"></span></div>
+        </div>
+      </div>
+
+      <div class="codewin" data-i18n-attr="aria-label:hero.code">
+        <div class="cw-bar">
+          <div class="cw-tabs" role="tablist">
+            <button type="button" role="tab" id="tab-dart" aria-controls="pan-dart" aria-selected="true">mobile.dart</button>
+            <button type="button" role="tab" id="tab-ts" aria-controls="pan-ts" aria-selected="false" tabindex="-1">api.ts</button>
+            <button type="button" role="tab" id="tab-py" aria-controls="pan-py" aria-selected="false" tabindex="-1">agent.py</button>
+          </div>
+        </div>
+        <div class="cw-panel" id="pan-dart" role="tabpanel" aria-labelledby="tab-dart">
+<pre><code><span class="c">// Flutter · Android + iOS</span>
+<span class="k">class</span> <span class="t">ProfileScreen</span> <span class="k">extends</span> <span class="t">StatelessWidget</span> {
+  <span class="k">const</span> <span class="t">ProfileScreen</span>({<span class="k">super</span>.key});
+
+  <span class="f">@override</span>
+  <span class="t">Widget</span> <span class="f">build</span>(<span class="t">BuildContext</span> context) {
+    <span class="k">return</span> <span class="t">Scaffold</span>(
+      body: <span class="t">Center</span>(
+        child: <span class="t">Text</span>(<span class="s">'Yoel David'</span>),
+      ),
+    );
+  }
+}</code></pre>
+          <div class="cw-chips"><span>Flutter</span><span>Dart</span><span>Figma UI/UX</span></div>
+        </div>
+        <div class="cw-panel" id="pan-ts" role="tabpanel" aria-labelledby="tab-ts" hidden>
+<pre><code><span class="c">// NestJS · REST API</span>
+<span class="f">@Controller</span>(<span class="s">'projects'</span>)
+<span class="k">export class</span> <span class="t">ProjectsController</span> {
+  <span class="k">constructor</span>(<span class="k">private</span> svc: <span class="t">ProjectsService</span>) {}
+
+  <span class="f">@Get</span>()
+  <span class="f">findAll</span>() {
+    <span class="k">return this</span>.svc.<span class="f">findAll</span>();
+  }
+
+  <span class="f">@Get</span>(<span class="s">':id'</span>)
+  <span class="f">findOne</span>(<span class="f">@Param</span>(<span class="s">'id'</span>) id: <span class="t">string</span>) {
+    <span class="k">return this</span>.svc.<span class="f">findOne</span>(id);
+  }
+}</code></pre>
+          <div class="cw-chips"><span>NestJS</span><span>Next.js</span><span>PostgreSQL</span><span>Prisma</span></div>
+        </div>
+        <div class="cw-panel" id="pan-py" role="tabpanel" aria-labelledby="tab-py" hidden>
+<pre><code><span class="c"># LangGraph · AI agent</span>
+<span class="k">from</span> langgraph.graph <span class="k">import</span> <span class="t">StateGraph</span>
+
+graph = <span class="t">StateGraph</span>(AgentState)
+graph.<span class="f">add_node</span>(<span class="s">"plan"</span>, plan_step)
+graph.<span class="f">add_node</span>(<span class="s">"act"</span>, run_tool)
+graph.<span class="f">add_node</span>(<span class="s">"confirm"</span>, ask_human)
+
+graph.<span class="f">add_edge</span>(<span class="s">"plan"</span>, <span class="s">"act"</span>)
+graph.<span class="f">add_edge</span>(<span class="s">"act"</span>, <span class="s">"confirm"</span>)
+app = graph.<span class="f">compile</span>()</code></pre>
+          <div class="cw-chips"><span>Python</span><span>LangGraph</span><span>Docker</span></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="job-desk">
+      <div class="sec-head">
+        <div><span class="eyebrow">Job desk</span><h2 data-i18n="job.h2"></h2></div>
+        <p data-i18n="job.p"></p>
+      </div>
+      <div class="tracks">
+        <article class="track">
+          <span class="tag">Mobile</span>
+          <h3 data-i18n="t1.h"></h3>
+          <p data-i18n="t1.p"></p>
+          <ul>
+            <li data-i18n="t1.a"></li><li data-i18n="t1.b"></li><li data-i18n="t1.c"></li><li data-i18n="t1.d"></li>
+          </ul>
+        </article>
+        <article class="track">
+          <span class="tag">Web &amp; API</span>
+          <h3 data-i18n="t2.h"></h3>
+          <p data-i18n="t2.p"></p>
+          <ul>
+            <li data-i18n="t2.a"></li><li data-i18n="t2.b"></li><li data-i18n="t2.c"></li><li data-i18n="t2.d"></li>
+          </ul>
+        </article>
+        <article class="track">
+          <span class="tag">AI</span>
+          <h3 data-i18n="t3.h"></h3>
+          <p data-i18n="t3.p"></p>
+          <ul>
+            <li data-i18n="t3.a"></li><li data-i18n="t3.b"></li><li data-i18n="t3.c"></li><li data-i18n="t3.d"></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="sec-head">
+        <div><span class="eyebrow">Tech stack</span><h2 data-i18n="sk.h2"></h2></div>
+        <p data-i18n="sk.p"></p>
+      </div>
+      <div class="stack">
+        <div class="stack-row">
+          <h3><span data-i18n="sk.r1"></span><small data-i18n="sk.r1s"></small></h3>
+          <ul class="items">
+            <li class="core">Flutter</li><li class="core">Dart</li><li>PHP</li><li>Laravel</li><li>Python</li><li>JavaScript</li><li>TypeScript</li>
+          </ul>
+        </div>
+        <div class="stack-row">
+          <h3><span data-i18n="sk.r2"></span><small>FULL STACK</small></h3>
+          <ul class="items">
+            <li class="core">NestJS</li><li class="core">Next.js</li><li>React</li><li>Node.js &amp; Express</li><li>Tailwind CSS</li><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Prisma ORM</li>
+          </ul>
+        </div>
+        <div class="stack-row">
+          <h3><span data-i18n="sk.r3"></span><small data-i18n="sk.r3s"></small></h3>
+          <ul class="items">
+            <li class="core">LangGraph AI Agents</li><li>GSAP &amp; ScrollTrigger</li><li>Docker &amp; Caddy</li><li>Git &amp; GitHub</li><li>Figma UI/UX</li><li>VS Code</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyek">
+      <div class="proj-head">
+        <div><span class="eyebrow" data-i18n="pr.eyebrow"></span><h2 data-i18n="pr.h2"></h2></div>
+        <div class="filters" id="filters" role="group" aria-label="Filter"></div>
+      </div>
+      <p class="proj-lead" data-i18n="pr.p"></p>
+      <div class="proj-grid" id="repos" aria-live="polite"></div>
+      <p class="src-note" id="repo-note"></p>
+    </section>
+
+    <section id="pendidikan">
+      <div class="edu">
+        <div><span class="eyebrow" data-i18n="ed.eyebrow"></span><h2 data-i18n="ed.h2"></h2></div>
+        <div class="edu-card">
+          <h3 data-i18n="card.eduv"></h3>
+          <p data-i18n="ed.p"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak">
+      <div class="sec-head" style="grid-template-columns:minmax(0,1fr)">
+        <div><span class="eyebrow" data-i18n="ct.eyebrow"></span><h2 data-i18n="ct.h2"></h2></div>
+      </div>
+      <div class="contact-grid">
+        <form class="form-card" id="cform" novalidate>
+          <div class="field">
+            <label for="f-name" data-i18n="ct.name"></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" data-i18n-attr="placeholder:ct.namePh">
+          </div>
+          <div class="field">
+            <label for="f-mail" data-i18n="ct.mail"></label>
+            <input id="f-mail" name="email" type="email" autocomplete="email" placeholder="nama@contoh.com">
+          </div>
+          <div class="field">
+            <label for="f-msg" data-i18n="ct.msg"></label>
+            <textarea id="f-msg" name="message" data-i18n-attr="placeholder:ct.msgPh"></textarea>
+          </div>
+          <button class="btn solid" type="submit" id="f-send" data-i18n="ct.send"></button>
+          <p class="form-status" id="f-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="info-list">
+          <div class="info">
+            <div class="ic" data-icon="email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+            <div><b data-i18n="ct.email"></b><span class="v" id="i-mail"></span></div>
+            <button type="button" data-copy="mail" data-i18n="ct.copy"></button>
+          </div>
+          <div class="info">
+            <div class="ic" data-icon="phone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+            <div><b data-i18n="ct.phone"></b><span class="v" id="i-phone"></span></div>
+            <button type="button" data-copy="phone" data-i18n="ct.copy"></button>
+          </div>
+          <div class="info">
+            <div class="ic" data-icon="location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <div><b data-i18n="ct.loc"></b><span class="v" id="i-loc"></span></div>
+            <span></span>
+          </div>
+          <a class="info" id="i-gh" href="https://github.com/" target="_blank" rel="noopener">
+            <div class="ic" data-icon="github"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></div>
+            <div><b>GitHub</b><span class="v" id="i-ghv"></span></div>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="yr">2026</span> Yoel David</span>
+    <span data-i18n="ft.built"></span>
+  </footer>
+</div>
+
+<dialog id="cs" aria-labelledby="cs-title">
+  <button type="button" class="cs-close" id="cs-close" aria-label="Close">✕</button>
+  <div class="cs-shot" id="cs-shot"></div>
+  <div class="cs-body" id="cs-body"></div>
+</dialog>
+
+<script src="js/main.js"></script>
+</body>
+</html>
